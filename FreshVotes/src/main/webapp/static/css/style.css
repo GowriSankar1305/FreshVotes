@@ -24,10 +24,10 @@
 ### Required CSS
 *********************************************************************
 *********************************************************************/
-@import url("../plugins/bootstrap/css/bootstrap.min.css");
-@import url("../plugins/font-awesome/css/font-awesome.min.css");
-@import url("../plugins/themify/themify.css");
-@import url("../plugins/flag/flag-icon.min.css");
+@import url("bootstrap.min.css");
+@import url("font-awesome.min.css");
+@import url("themify.css");
+@import url("flag-icon.min.css");
 @import url("app.min.css");
 
 /**********************************************************************

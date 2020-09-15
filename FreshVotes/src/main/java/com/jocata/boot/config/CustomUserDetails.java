@@ -1,9 +1,10 @@
 package com.jocata.boot.config;
 
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import com.jocata.boot.entity.User;
@@ -21,7 +22,7 @@ public class CustomUserDetails implements UserDetails {
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return Collections.emptyList();
+		return Arrays.asList(new SimpleGrantedAuthority(user.getRole().getRoleName()));  
 	}
 
 	@Override

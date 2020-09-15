@@ -36,9 +36,11 @@
             <div class="col-lg-6 bg-light">
                <div class="ht-100v d-flex align-items-center justify-content-center">
                   <div class="">
+                  	 <h3 class="tx-dark mg-b-5 tx-left">Sign In</h3>
+                     <p class="tx-gray-500 tx-15 mg-b-40">Welcome back! Please signin to continue.</p>
                      <form action="login" method="POST" id="frm">
                      <div class="form-group tx-left">
-                        <label class="tx-gray-500 mg-b-5">Email address</label>
+                        <label class="tx-gray-500 mg-b-5">UserName</label>
                         <input type="text" class="form-control" placeholder="Enter your username" name="username">
                      </div>
                      <div class="form-group">
@@ -51,24 +53,22 @@
                      <button type="submit" class="btn btn-brand btn-block">Sign in</button>
                      <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                   	</form>
-                  	 <c:if test="${logout ne null}">
-                     <p style="color: green;">${logout }</p>	
+                     <div class="tx-13 mg-t-20 tx-center tx-gray-500">Don't have an account? <a href="register" class="tx-dark tx-semibold">Create an Account</a></div>
+                    <c:if test="${logout ne null}">
+                     <div class="tx-13 mg-t-20 tx-center tx-semibold" style="color:green;">${logout }</div>	
                      </c:if>
                      <c:if test="${error ne null}">
-                     <p style="color: red;">${error }</p>	
+                     <div class="tx-13 mg-t-20 tx-center tx-semibold" style="color:red;">${error }</div>	
                      </c:if>
                      <c:if test="${timeout ne null}">
-                     <p style="color: red;">${timeout }</p>	
+                     <div class="tx-13 mg-t-20 tx-center tx-semibold" style="color:red;">${timeout }</div>	
                      </c:if>
                      <c:if test="${invalid ne null}">
-                     <p style="color: red;">${invalid }</p>	
+                     <div class="tx-13 mg-t-20 tx-center tx-semibold" style="color:red;">${invalid }</div>	
                      </c:if>
-                     
-                     <div class="pd-y-20 tx-uppercase tx-gray-500">or</div>
-                     <button class="btn bg-facebook">Facebook</button>
-                     <button class="btn bg-twitter">Twitter</button>
-                     <button class="btn bg-linkedin">Linkedin</button>
-                     <div class="tx-13 mg-t-20 tx-center tx-gray-500">Don't have an account? <a href="#" class="tx-dark tx-semibold">Create an Account</a></div>
+                     <c:if test="${signup ne null}">
+                     <div class="tx-13 mg-t-20 tx-center tx-semibold" style="color:green;">${signup }</div>	
+                     </c:if>
                   </div>
                </div>
             </div>

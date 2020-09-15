@@ -35,11 +35,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.antMatchers("/admin/**").hasAnyRole(Roles.SUPERADMIN,Roles.ADMIN)
 		.antMatchers("/user/**").hasAnyRole(Roles.SUPERADMIN,Roles.ADMIN,Roles.USER)
 		.antMatchers("/static/**").permitAll()
-		.antMatchers("/","/login").permitAll()
+		.antMatchers("/","/login","/register","/validateEmail","/validateUname").permitAll()
 		.antMatchers("/**").authenticated()
-		.and().formLogin().loginPage("/login").failureUrl("/login?error").and()
+		.and().formLogin().loginPage("/login").failureUrl("/login?error")
+		.defaultSuccessUrl("/dashboard").and()
 		.logout().logoutSuccessUrl("/login?logout")
-		.clearAuthentication(true).deleteCookies("JSESSIONID")
+		.invalidateHttpSession(true).deleteCookies("JSESSIONID")
 		.and().sessionManagement().maximumSessions(1).expiredUrl("/login?expired")
 		.and().invalidSessionUrl("/login?invalid");
 	}
